@@ -4,7 +4,7 @@
 
   class SeriesController extends Controller{
     public function index(Request $request){
-      $series = [
+      /*$series = [
           'Grey\'s Anatomy',
           'Lost',
           'Agents of SHIELD'
@@ -13,9 +13,9 @@
       foreach ($series as $serie){
         $html .="<li>$serie</li>";
       }
-      $html .= "</ul>";
+      $html .= "</ul>";*/
 
-      return $html;
+      return view('series.index');
     }
   }
  ?>
