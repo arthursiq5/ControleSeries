@@ -4,18 +4,13 @@
 
   class SeriesController extends Controller{
     public function index(Request $request){
-      /*$series = [
+      $series = [
           'Grey\'s Anatomy',
           'Lost',
           'Agents of SHIELD'
       ];
-      $html = "<ul>";
-      foreach ($series as $serie){
-        $html .="<li>$serie</li>";
-      }
-      $html .= "</ul>";*/
 
-      return view('series.index');
+      return view('series.index', ['series' => $series]); // retorna uma view do arquivo series/index.php com o uso das variaveis entre colchetes '[]'
     }
   }
  ?>

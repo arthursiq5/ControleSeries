@@ -6,6 +6,12 @@
     <title>Controle de Series</title>
   </head>
   <body>
-    Ola, mundo com Laravel
+    <ul>
+      <?php
+      foreach ($series as $serie): // forma diferenciada de fazer um foreach com HTML e PHP bem separados
+        ?>
+        <li><?= $serie?></li>
+      <?php endforeach; ?>
+    </ul>
   </body>
 </html>
