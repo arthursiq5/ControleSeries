@@ -1,8 +1,9 @@
 <?php
   namespace App\Http\Controllers;
+  use Illuminate\Http\Request;
 
   class SeriesController extends Controller{
-    public function listarSeries(){
+    public function listarSeries(Request $request){
       $series = [
           'Grey\'s Anatomy',
           'Lost',
