@@ -5,11 +5,7 @@
 
   class SeriesController extends Controller{
     public function index(Request $request){
-      $series = [
-          'Grey\'s Anatomy',
-          'Lost',
-          'Agents of SHIELD'
-      ];
+      $series = Serie::all();
 
       // return view('series.index', ['series' => $series]); // retorna uma view do arquivo series/index.php com o uso das variaveis entre colchetes '[]'
 
@@ -21,10 +17,12 @@
     }
 
     public function store(Request $request){
-      $nome = $request->get('nome'); // pega os dados enviados pelo post do formulario
-      $serie = new Serie();
-      $serie->nome = $nome;
-      var_dump($serie->save());
+      /*$nome = $request->get('nome'); // pega os dados enviados pelo post do formulario
+      var_dump(Serie::create([
+        'nome' => $nome
+      ]));*/
+      $serie = Serie::create($request->all());
+      echo "serie {$serie->nome} com id {$serie->id} criada";
     }
   }
  ?>
