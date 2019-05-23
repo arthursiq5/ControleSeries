@@ -12,7 +12,7 @@
       </div>
 
       <form class="" method="post">
-        <div class="input-group">
+        <div class="form-group">
           <label for="nome">Nome</label>
           <input type="text" name="nome" id='nome' class='form-control'/>
         </div>
