@@ -5,7 +5,9 @@
 
   class SeriesController extends Controller{
     public function index(Request $request){
-      $series = Serie::all();
+      $series = Serie::query() // informa que vai realizar uma query
+        ->orderBy('nome') // ordena os dados pelo nome
+        ->get(); // pega todos os dados (SELECT * FROM tabela)
 
       // return view('series.index', ['series' => $series]); // retorna uma view do arquivo series/index.php com o uso das variaveis entre colchetes '[]'
 
@@ -22,7 +24,10 @@
         'nome' => $nome
       ]));*/
       $serie = Serie::create($request->all());
-      echo "serie {$serie->nome} com id {$serie->id} criada";
+
+      // echo "serie {$serie->nome} com id {$serie->id} criada";
+
+      return redirect('/series'); // retorna um redirecionamento para a pagina principal
     }
   }
  ?>
