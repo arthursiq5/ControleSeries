@@ -8,18 +8,17 @@
   <body>
     <div class="container">
       <div class="jumbotron">
-        <h1>Series</h1>
+        <h1>Adicionar Serie</h1>
       </div>
 
-      <a href="/series/criar" class='btn btn-dark mb-2'>Adicionar</a>
+      <form class="" method="post">
+        <div class="input-group">
+          <label for="nome">Nome</label>
+          <input type="text" name="nome" id='nome' class='form-control'/>
+        </div>
 
-      <ul class='list-group'>
-        <?php
-        foreach ($series as $serie): // forma diferenciada de fazer um foreach com HTML e PHP bem separados
-          ?>
-          <li class='list-group-item'><?= $serie?></li>
-        <?php endforeach; ?>
-      </ul>
+        <button type="button" class='btn btn-primary'>Adicionar</button>
+      </form>
     </div>
   </body>
 </html>

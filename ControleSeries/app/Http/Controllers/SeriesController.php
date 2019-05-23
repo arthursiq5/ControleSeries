@@ -14,5 +14,9 @@
 
       return view('series.index', compact('series')); // retorna um array com a variavel $series sendo usada em conjunto com a chave 'series'
     }
+
+    public function create(){
+      return view('series.create');
+    }
   }
  ?>
