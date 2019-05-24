@@ -1,6 +1,7 @@
 <?php
   namespace App\Http\Controllers;
   use Illuminate\Http\Request;
+  use App\Http\Requests\SeriesFormRequest;
   use App\Serie;
 
   class SeriesController extends Controller{
@@ -21,13 +22,13 @@
       return view('series.create');
     }
 
-    public function store(Request $request){
+    public function store(SeriesFormRequest $request){
       /*$nome = $request->get('nome'); // pega os dados enviados pelo post do formulario
       var_dump(Serie::create([
         'nome' => $nome
       ]));*/
       $request->validate([
-        'nome' => 'required|min:3'
+        //'nome' => 'required|min:3'
       ]);
       $serie = Serie::create($request->all());
       $request->session()->
