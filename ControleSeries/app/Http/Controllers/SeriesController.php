@@ -11,7 +11,7 @@
 
       $mensagem = $request->session()->get('mensagem');
       // return view('series.index', ['series' => $series]); // retorna uma view do arquivo series/index.php com o uso das variaveis entre colchetes '[]'
-      $request->session()->remove('mensagem'); // removendo a mensagem da sessao apos a utilizacao
+      // $request->session()->remove('mensagem'); // removendo a mensagem da sessao apos a utilizacao
 
 
       return view('series.index', compact('series', 'mensagem')); // retorna um array com a variavel $series sendo usada em conjunto com a chave 'series'
@@ -28,7 +28,7 @@
       ]));*/
       $serie = Serie::create($request->all());
       $request->session()->
-        put(
+        flash( // ao contrario do 'put', o 'flash' usa a mensagem apenas uma vez
           'mensagem',
           "serie {$serie->id} criada com sucesso: {$serie->nome}"
         );
