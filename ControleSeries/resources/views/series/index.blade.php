@@ -17,7 +17,8 @@ Series
     @foreach ($series as $serie)
     <li class='list-group-item'>
       {{ $serie->nome }}
-      <form method="post" action="/series/{{ $serie->id}}">
+      <form method="post" action="/series/{{ $serie->id}}"
+        onsubmit="return confirm('Tem certeza que deseja remover {{addslashes($serie->nome)}}?')">
         @csrf
         @method('DELETE') <!-- como o metodo 'delete' nao e suportado pelo HTML, ele deve ser setado atraves do proprio 'Laravel' -->
         <button class="btn btn-danger">Excluir</button>
