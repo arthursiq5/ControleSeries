@@ -26,6 +26,9 @@
       var_dump(Serie::create([
         'nome' => $nome
       ]));*/
+      $request->validate([
+        'nome' => 'required|min:3'
+      ]);
       $serie = Serie::create($request->all());
       $request->session()->
         flash( // ao contrario do 'put', o 'flash' usa a mensagem apenas uma vez
