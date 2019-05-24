@@ -36,9 +36,8 @@
       // echo "serie {$serie->nome} com id {$serie->id} criada";
 
 
-      return redirect(
-        '/series'
-      ); // retorna um redirecionamento para a pagina principal
+      return redirect()->
+        route('index'); // retorna um redirecionamento para a pagina principal
     }
 
     public function destroy(Request $request){
@@ -49,7 +48,8 @@
           "serie removida com sucesso"
         );
 
-      return redirect('/series');
+      return redirect()->
+        route('index');
     }
   }
  ?>
