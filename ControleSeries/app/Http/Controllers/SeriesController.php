@@ -42,7 +42,14 @@
     }
 
     public function destroy(Request $request){
-      echo $request->id;
+      Serie::destroy($request->id);
+      $request->session()->
+        flash(
+          'mensagem',
+          "serie removida com sucesso"
+        );
+
+      return redirect('/series');
     }
   }
  ?>
