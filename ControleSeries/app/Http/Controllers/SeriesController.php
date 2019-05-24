@@ -40,5 +40,9 @@
         '/series'
       ); // retorna um redirecionamento para a pagina principal
     }
+
+    public function destroy(Request $request){
+      echo $request->id;
+    }
   }
  ?>

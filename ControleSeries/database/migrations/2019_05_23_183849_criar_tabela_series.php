@@ -14,7 +14,8 @@ class CriarTabelaSeries extends Migration
     public function up()
     {
         Schema::create('series', function(Blueprint $table){
-          $table->string('nome'); // criando tabela 'nome'
+          $table->increments('id'); // cria coluna autoincrementavel 'id'
+          $table->string('nome'); // criando coluna 'nome'
           //$table->timestamps(); // gerenciando automaticamente data e hora de insercao de dados
         });
     }
