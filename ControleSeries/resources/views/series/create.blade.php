@@ -23,15 +23,15 @@ Adicionar Serie
 
     <div class="col col-2">
         <label for="qtd_temporadas">N˚ temporadas</label>
-        <input type="text" name="qtd_temporadas" id='qtd_temporadas' class='form-control'/>
+        <input type="number" name="qtd_temporadas" id='qtd_temporadas' class='form-control'/>
     </div>
 
     <div class="col col-2">
-        <label for="qtd_episodios">N˚ temporadas</label>
-        <input type="text" name="qtd_episodios" id='qtd_episodios' class='form-control'/>
+        <label for="ep_por_temporada">N˚ temporadas</label>
+        <input type="number" name="ep_por_temporada" id='ep_por_temporada' class='form-control'/>
     </div>
   </div>
 
-    <button class='btn btn-primary'>Adicionar</button>
+    <button class='btn btn-primary mt-2'>Adicionar</button>
 </form>
 @endsection

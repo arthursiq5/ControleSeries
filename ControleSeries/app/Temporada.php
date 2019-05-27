@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Temporada extends Model
 {
+  protected $fillable = ['numero'];
   public $timestamps = false;
 
   public function episodios(){ // faz mencao a todos os objetos que implementam 'Episodio' que possuam relacao com a temporada

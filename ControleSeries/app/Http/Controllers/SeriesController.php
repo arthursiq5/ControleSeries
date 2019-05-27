@@ -27,14 +27,22 @@
       var_dump(Serie::create([
         'nome' => $nome
       ]));*/
-      $request->validate([
-        //'nome' => 'required|min:3'
-      ]);
-      $serie = Serie::create($request->all());
+      $request->validate([]);
+      $serie = Serie::create(['nome' => $request->nome]);
+
+      $qtdTemporadas = $request->qtd_temporadas;
+      for($i = 1; $i <= $qtdTemporadas; $i++){
+        $temporada =  $serie->temporadas() // chama o metodo 'temporadas', pra enviar dados pra a propriedade
+          ->create(['numero' => $i]);//cria uma temporada pre-relacionada com a serie
+          for ($j=1; $j <= $request->ep_por_temporada; $j++) {
+            $temporada->episodios()->create(['numero' => $j]);
+          }
+        }
+
       $request->session()->
         flash( // ao contrario do 'put', o 'flash' usa a mensagem apenas uma vez
           'mensagem',
-          "serie {$serie->id} criada com sucesso: {$serie->nome}"
+          "serie {$serie->id} e suas temporadas criadas com sucesso: {$serie->nome}"
         );
 
       // echo "serie {$serie->nome} com id {$serie->id} criada";
