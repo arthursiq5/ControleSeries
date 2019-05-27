@@ -27,7 +27,7 @@ Adicionar Serie
     </div>
 
     <div class="col col-2">
-        <label for="ep_por_temporada">N˚ temporadas</label>
+        <label for="ep_por_temporada">Qtd. episodios</label>
         <input type="number" name="ep_por_temporada" id='ep_por_temporada' class='form-control'/>
     </div>
   </div>
