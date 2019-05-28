@@ -27,10 +27,6 @@
       SeriesFormRequest $request,
       CriadorDeSerie $criadorDeSerie
     ){
-      /*$nome = $request->get('nome'); // pega os dados enviados pelo post do formulario
-      var_dump(Serie::create([
-        'nome' => $nome
-      ]));*/
       $request->validate([]);
 
       $serie = $criadorDeSerie->criarSerie(
@@ -62,14 +58,6 @@
 
       return redirect()->
         route('index');
-        /*$serie = Serie::find($request->id);
-        $serie->temporadas()->each(function (Temporada $temporada){
-          $temporada->episodios()->each(function (Episodio $episodio){
-            $episodio->delete();
-          });
-          $temporada->delete();
-        });
-        $serie->delete();*/
     }
   }
  ?>
