@@ -48,8 +48,15 @@ Series
 
 <script type="text/javascript">
   function toggleInput(serieId){
-    document.getElementById(`input-nome-serie-${serieId}`).removeAttribute('hidden');
-    document.getElementById(`nome-serie-${serieId}`).hidden = true;
+    const nomeSerieEl = document.getElementById(`nome-serie-${serieId}`);
+    const nomeSerieInput = document.getElementById(`input-nome-serie-${serieId}`);
+    if (nomeSerieEl.hasAttribute('hidden')){
+      nomeSerieEl.removeAttribute('hidden');
+      nomeSerieInput.hidden = true;
+    }else{
+      nomeSerieInput.removeAttribute('hidden');
+      nomeSerieEl.hidden = true;
+    }
   }
 </script>
 @endsection
