@@ -59,5 +59,12 @@
       return redirect()->
         route('index');
     }
+
+    public function editaNome(Request $request){
+      $novoNome = $request->nome;
+      $serie = Serie::find($request->id);
+      $serie->nome = $novoNome;
+      $serie->save();
+    }
   }
  ?>

@@ -58,5 +58,29 @@ Series
       nomeSerieEl.hidden = true;
     }
   }
+
+  function editarSerie(serieId){
+    let formData = new FormData();
+
+    const nome = document
+    .querySelector(
+        `#input-nome-serie-${serieId} > input`)
+      .value; // simplificando: estou pegando um campo input filho de um elemento com o id `input-nome-serie-${serieId}`
+
+      const token = document
+        .querySelector('input[name="_token"]')
+        .value; // pegando o token de seguranca dos dados
+
+      formData.append('nome', nome);
+      formData.append('_token', token);
+      const url = `/series/${serieId}/editaNome`; // endereco da requisiçao
+      fetch(url, { // iniciando requisicao
+        body: formData, // enviando os dados do formulario
+        method: 'POST'
+      }).then(() => { // apos atualizar os dados no banco, comece essa funcao
+        toggleInput(serieId);
+        document.getElementById(`nome-serie-${serieId}`).textContent = nome;
+      });
+  }
 </script>
 @endsection
