@@ -40,4 +40,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/entrar', 'EntrarController@index');
 Route::post('/entrar', 'EntrarController@entrar');
+
+Route::get('/registrar', 'RegistroController@create');
+Route::post('/registrar', 'RegistroController@store');
+
+Route::get('/sair', function(){
+  \Illuminate\Support\Facades\Auth::logout();
+  return redirect('/entrar');
+});
 ?>

@@ -8,6 +8,12 @@
     <title>Controle de Series</title>
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2 flex justify-content-between">
+      <a class="navbar-brand" href="{{route('index')}}">Menu</a>
+      @auth
+      <a class="text-danger" href="/sair">Sair</a>
+      @endauth
+    </nav>
     <div class="container">
       <div class="jumbotron">
         <h1>@yield('cabecalho')<!-- local onde sera inserido o cabecalho da pagina --></h1>
