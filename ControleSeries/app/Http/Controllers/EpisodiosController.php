@@ -7,6 +7,9 @@ use App\{Temporada, Episodio, Serie};
 
 class EpisodiosController extends Controller
 {
+    public function __construct(){
+      $this->middleware('auth'); // antes de qualquer metodo de dentro desse controller ser acessado, ele vai passar pelo 'meio de campo', middleware 'auth'
+    }
     public function index(Temporada $temporada, Request $request){
       $episodios = $temporada->episodios;
       $temporadaId = $temporada->id;

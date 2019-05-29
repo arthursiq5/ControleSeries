@@ -1,12 +1,20 @@
 <?php
   namespace App\Http\Controllers;
   use Illuminate\Http\Request;
+  use Illuminate\Support\Facades\Auth;
   use App\Http\Requests\SeriesFormRequest;
   use App\{Serie, Temporada, Episodio};
   use App\Services\{CriadorDeSerie, RemovedorDeSerie};
 
   class SeriesController extends Controller{
+    public function __construct(){
+      $this->middleware('auth'); // antes de qualquer metodo de dentro desse controller ser acessado, ele vai passar pelo 'meio de campo', middleware 'auth'
+    }
     public function index(Request $request){
+      /*if(!Auth::check()){ // protege a rota individualmente (arquivo por arquivo)
+        echo 'nao autenticado';
+        exit();
+      }*/
       $series = Serie::query() // informa que vai realizar uma query
         ->orderBy('nome') // ordena os dados pelo nome
         ->get(); // pega todos os dados (SELECT * FROM tabela)

@@ -3,7 +3,7 @@
 @section('cabecalho')
 Series
 @endsection
-
+@section('conteudo')
 @include('mensagem', ['mensagem' => $mensagem])
 
     <a href="{{route('adiciona_serie')}}" class='btn btn-dark mb-2'>Adicionar</a>

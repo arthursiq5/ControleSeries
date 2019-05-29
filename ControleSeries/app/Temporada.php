@@ -19,9 +19,9 @@ class Temporada extends Model
 
   public function getEpisodiosAssistidos() : Collection
   {
-    return $this->episodios->filter(
+    return $this->episodios->filter( // retorna uma collection filtrada para conter apenas certos dados
       function(Episodio $episodio){
-        return $episodio->assistido;
+        return $episodio->assistido; // retorna apenas os episodios assistidos
       }
     );
   }
