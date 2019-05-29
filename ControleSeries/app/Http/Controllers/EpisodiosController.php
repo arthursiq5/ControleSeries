@@ -7,15 +7,16 @@ use App\{Temporada, Episodio, Serie};
 
 class EpisodiosController extends Controller
 {
-    public function index(Temporada $temporada){
+    public function index(Temporada $temporada, Request $request){
       $episodios = $temporada->episodios;
       $temporadaId = $temporada->id;
       return view(
         'episodios.index',
-        compact(
-          'episodios',
-          'temporadaId'
-          )
+        [
+          'episodios' => $temporada->episodios,
+          'temporadaId' => $temporada->id,
+          'mensagem' => $request->session()->get('mensagem')
+        ]
       );
     }
 
@@ -34,6 +35,8 @@ class EpisodiosController extends Controller
               : false;
       });
       $temporada->push(); // obriga o campo 'temporada' a atualizar os dados do banco
+
+      $request->session()->flash('mensagem', 'Episodios marcados como assistidos');
 
       return redirect()->back();
     }

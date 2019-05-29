@@ -4,6 +4,9 @@
 @endsection
 
 @section('conteudo')
+
+@include('mensagem', ['mensagem' => $mensagem])
+
   <form action="/temporadas/{{$temporadaId}}/episodios/assistir" method="post">
     @csrf
     <ul class='list-group'>
