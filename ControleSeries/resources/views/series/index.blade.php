@@ -5,10 +5,7 @@ Series
 @endsection
 @section('conteudo')
 @include('mensagem', ['mensagem' => $mensagem])
-
-    @auth
-      <a href="{{route('adiciona_serie')}}" class='btn btn-dark mb-2'>Adicionar</a>
-    @endauth
+    <a href="{{route('adiciona_serie')}}" class='btn btn-dark mb-2'>Adicionar</a>
 
     <ul class='list-group'>
     @foreach ($series as $serie)
