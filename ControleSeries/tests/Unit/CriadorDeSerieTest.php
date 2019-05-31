@@ -10,6 +10,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CriadorDeSerieTest extends TestCase
 {
+  use RefreshDatabase;
     /**
      * @return void
      */

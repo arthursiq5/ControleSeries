@@ -9,6 +9,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class TemporadaTest extends TestCase
 {
+  use RefreshDatabase;
   /** @var Temporada */
   private $temporada;
 

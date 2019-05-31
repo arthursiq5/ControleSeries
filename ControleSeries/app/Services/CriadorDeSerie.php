@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\DB;
         $this->criarTemporadas($serie, $i, $epPorTemporada);
       }
       DB::commit();
+      //DB::rollback();
       return $serie;
     }
 
