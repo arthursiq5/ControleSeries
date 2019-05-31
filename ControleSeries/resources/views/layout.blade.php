@@ -8,11 +8,14 @@
     <title>Controle de Series</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2 flex justify-content-between">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2 d-flex justify-content-between">
       <a class="navbar-brand" href="{{route('index')}}">Menu</a>
       @auth
-      <a class="text-danger" href="/sair">Sair</a>
+        <a class="text-danger" href="/sair">Sair</a>
       @endauth
+      @guest
+        <a href="/entrar">Entrar</a>
+      @endguest
     </nav>
     <div class="container">
       <div class="jumbotron">

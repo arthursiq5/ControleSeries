@@ -20,19 +20,24 @@ Route::get('/series', 'SeriesController@index')
   //->middleware('auth'); // faça o 'meio de campo', manipule a requisiçao atraves da classe 'auth', do Laravel
 
 Route::get('/series/criar', 'SeriesController@create')
-  ->name('adiciona_serie');
+  ->name('adiciona_serie')
+  ->middleware('auth');
 
-Route::post('/series/criar', 'SeriesController@store');
+Route::post('/series/criar', 'SeriesController@store')
+  ->middleware('auth');
 
-Route::delete('/series/{id}', 'SeriesController@destroy');
+Route::delete('/series/{id}', 'SeriesController@destroy')
+  ->middleware('auth');
 
-Route::post('/series/{id}/editaNome', 'SeriesController@editaNome');
+Route::post('/series/{id}/editaNome', 'SeriesController@editaNome')
+  ->middleware('auth');
 
 Route::get('/series/{serieId}/temporadas', 'TemporadasController@index');
 
 Route::get('/temporadas/{temporada}/episodios', 'EpisodiosController@index');
 
-Route::post('/temporadas/{temporada}/episodios/assistir', 'EpisodiosController@assistir');
+Route::post('/temporadas/{temporada}/episodios/assistir', 'EpisodiosController@assistir')
+  ->middleware('auth');
 
 Auth::routes();
 
