@@ -16,20 +16,23 @@ Series
         <span id="nome-serie-{{ $serie->id }}">
           {{ $serie->nome }}
         </span>
-
-      <div class="input-group w-50" hidden id="input-nome-serie-{{ $serie->id }}">
-        <input type="text" class="form-control" value="{{ $serie->nome }}">
-        <div class="input-group-append">
-          <button class="btn btn-primary mr-1" onclick="editarSerie({{ $serie->id }})">
-            <i class="fas fa-check"></i>
-          </button>
-          @csrf
-        </div>
-      </div>
+        @auth
+          <div class="input-group w-50" hidden id="input-nome-serie-{{ $serie->id }}">
+            <input type="text" class="form-control" value="{{ $serie->nome }}">
+            <div class="input-group-append">
+              <button class="btn btn-primary mr-1" onclick="editarSerie({{ $serie->id }})">
+                <i class="fas fa-check"></i>
+              </button>
+              @csrf
+            </div>
+          </div>
+        @endauth
       <span class='d-flex'> <!-- agrupa os botoes -->
-        <button class='btn btn-info btn-sm mr-1' onclick='toggleInput({{$serie->id}})'>
-          <i class='fas fa-edit'></i>
-        </button>
+        @auth
+          <button class='btn btn-info btn-sm mr-1' onclick='toggleInput({{$serie->id}})'>
+            <i class='fas fa-edit'></i>
+          </button>
+        @endauth
         <a class='btn btn-info btn-sm mr-1' href="/series/{{ $serie->id }}/temporadas">
           <i class="fas fa-external-link-alt"></i>
         </a>
