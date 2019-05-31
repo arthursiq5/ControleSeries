@@ -21,7 +21,11 @@ use Illuminate\Support\Facades\DB;
       return $serie;
     }
 
-    private function criarTemporadas(Serie $serie, $numeroTemporada, $epPorTemporada):void{
+    private function criarTemporadas(
+      Serie $serie,
+      $numeroTemporada,
+      $epPorTemporada
+    ):void{
       $temporada =  $serie->temporadas() // chama o metodo 'temporadas', pra enviar dados pra a propriedade
         ->create(['numero' => $numeroTemporada]);//cria uma temporada pre-relacionada com a serie
 
